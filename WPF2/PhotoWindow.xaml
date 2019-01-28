@@ -1,0 +1,67 @@
+﻿<Window x:Class="WPF2.PhotoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF2"
+        mc:Ignorable="d"
+        Title="PhotoWindow" Height="300" Width="300" >
+    <StackPanel Orientation="Horizontal">
+        <Grid Width="300">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Expander Margin="10" Background="Azure" BorderBrush="Aqua" BorderThickness="3" VerticalAlignment="Top" Header="Image Information">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Name:" Grid.Row="0" FontWeight="Bold"/>
+                    <TextBlock Text="Width:" Grid.Row="1" FontWeight="Bold"/>
+                    <TextBlock Text="Height:" Grid.Row="2" FontWeight="Bold"/>
+                    <TextBlock Text="Creation Date:" Grid.Row="3" FontWeight="Bold"/>
+                    <TextBlock Name="imagename" Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock Name="imagewidth" Grid.Row="1" Grid.Column="1"/>
+                    <TextBlock Name="imageheight" Grid.Row="2" Grid.Column="1"/>
+                    <TextBlock Name="imagedate" Grid.Row="3" Grid.Column="1"/>
+                </Grid>
+            </Expander>
+            <Border Grid.Row="1" Margin="10" Background="Moccasin" BorderThickness="1">
+                <Expander VerticalAlignment="Top" Background="Salmon"  Margin="2" Header="Plugins">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ComboBox Width="140" Margin="10">
+                            <ComboBoxItem>Rotate 180 Plugin</ComboBoxItem>
+                            <ComboBoxItem>Rotate 270 Plugin</ComboBoxItem>
+                            <ComboBoxItem>Rotate 90 Plugin</ComboBoxItem>
+                        </ComboBox>
+                        <Button Grid.Row="1" Content="Use Plugin" Width="80" Margin="5"></Button>
+                    </Grid>
+                </Expander>
+            </Border>
+        </Grid>
+        <Border BorderThickness="1" Background="Blue" Margin="5">
+            <Image  Name="obrazek" Margin="5" Grid.RowSpan="2" Grid.Column="1">
+                <Image.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Save" Click="Save_Click"></MenuItem>
+                        <MenuItem Header="Reset" Click="Reset_Click"></MenuItem>
+                        <Separator/>
+                        <MenuItem Header="Exit" Click="Exit_Click"></MenuItem>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
+        </Border>
+    </StackPanel>
+</Window>
